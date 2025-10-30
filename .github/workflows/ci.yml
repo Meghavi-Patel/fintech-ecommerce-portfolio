@@ -12,7 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Backend Build
-        run: cd backend && ./mvnw -q -B clean verify
+        run: |
+          cd backend  
+          chmod +x mvnw
+          ./mvnw -q -B clean verify
 
   build-frontend:
     runs-on: ubuntu-latest
